@@ -13,9 +13,6 @@ if($outdatedCount -eq 0 )
 else
 {
 	Write-Host -ForegroundColor Green ("Updates available: {0}" -f $outdatedCount)
-	if($PSCmdlet.MyInvocation.BoundParameters["Verbose"].IsPresent)
-	{
-		$chocoOutdated | %{ Write-Host -ForegroundColor Yellow ("- {0} v{1}" -f $_.Split('|')[0],  $_.Split('|')[2] ) }
-	}
+	$chocoOutdated | sort-object | %{ Write-Host -ForegroundColor Yellow ("- {0} from {1} to {2}" -f $_.Split('|')[0],  $_.Split('|')[1],  $_.Split('|')[2] ) }
 	EXIT $outdatedCount
 }
