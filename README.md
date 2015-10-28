@@ -8,6 +8,7 @@
 1. [Setup Maschine](#setup-maschine)
 1. [Setup externe Festplatte](#setup-externe-festplatte)
 1. [Setup TrueCrypt-Festplatte](#setup-truecrypt-festplatte)
+1. [Setup Choco-Upgrade](#setup-choco-upgrade)
 1. [Namensgebung Backups](#namensgebung-backups)
 1. [Wiederherstellung](#wiederherstellung)
 1. [Hintergrund-Geschichte](#hintergrund-geschichte)
@@ -62,6 +63,22 @@
 1. Kopiere den Inhalt von `setup\encrypted-drive` ins Root-Verzeichnis
     1. Ändere in der _kopierten_ `autorun.ini` das `LABEL` auf `Att22 Florian Win10` (siehe [Namensgebung Backups](#namensgebung-backups))
     1. Verstecke die kopierten Dateien
+
+## Setup Choco-Upgrade
+
+Ich verwende [chocolatey.org](http://chocolatey.org), damit ich Maschinen schnell, einfach und ohne viel Mühe einrichte. Um die installierte Software am aktuellsten Stand zu halten, gibt es ein Batch-Script für die _Scheduled Tasks_, das prüft, ob Upgrades vorhanden sind, und diese _nach Rückfrage_ installiert. Sind bei Logon keine Upgrades vorhanden, beendet sich das Script ohne Rückfrage.
+
+1. Klone dieses Repository nach `%ALLUSERSPROFILE%\backstage` bzw. `C:\ProgramData\backstage`
+1. Starte Scheduled Tasks: `taskschd.msc`
+1. _[Optional]_ Gehe in Unterordner `_Custom`
+1. Erstelle neuen Task:
+    1. Name: **choco-upgrade**
+    1. :ballot_box_with_check: **Run only when user is logged on**
+    1. :ballot_box_with_check: **Run with highest privileges**
+    1. Trigger: **At log on**
+    1. Action: Start a program:
+        1. Program/script: `%ALLUSERSPROFILE%\backstage\scripts\choco-upgrade.bat`
+        1. Start in: `%ALLUSERSPROFILE%\backstage\scripts\`
 
 ## Namensgebung Backups
 
