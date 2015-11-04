@@ -2,7 +2,10 @@
 [CmdletBinding()]
 PARAM()
 
-$chocoOutdated = choco outdated -r | select -skip 3
+$host.ui.rawui.windowtitle = 'Backstage - Chocolatey Upgrade'
+Write-Host -ForegroundColor DarkGray "Checking for upgrades..."
+
+$chocoOutdated = choco outdated -r | select -skip 3 | where { $_ -contains '|' }
 $outdatedCount = $chocoOutdated.Count
 
 if($outdatedCount -eq 0 )
