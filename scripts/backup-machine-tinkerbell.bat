@@ -15,22 +15,22 @@ TITLE Backstage - %BackupName%
 
 :WaitForTcVolumePath
 IF NOT EXIST "%TcVolumePath%" (
-	%CECHO% Cyan * Plugin Harddisk, so "%TcVolumePath%" is available
-	PAUSE
-	GOTO WaitForTcVolumePath
+  %CECHO% Cyan * Plugin Harddisk, so "%TcVolumePath%" is available
+  PAUSE
+  GOTO WaitForTcVolumePath
 )
 
 IF NOT EXIST "%ReflectProfile%" (
-	%CECHO% Red ERROR: Reflect profile does not exist
-	EXIT /B 1
+  %CECHO% Red ERROR: Reflect profile does not exist
+  EXIT /B 1
 )
 
 %CECHO% DarkGray Mounting TC volume...
 "%TrueCrypt%" /volume "%TcVolumePath%" /letter %BackupTargetLetter% /history n /quit
 
 IF %ERRORLEVEL% GTR 0 (
-	%CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
-	EXIT /B 2
+  %CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
+  EXIT /B 2
 )
 
 %CECHO% DarkGray Cleaning up old backup...
@@ -40,8 +40,8 @@ IF EXIST "%BackupTarget%%BackupName%*.mrimg" ( DEL /F /Q "%BackupTarget%%BackupN
 "%Reflect%" -e -w -full "%ReflectProfile%"
 
 IF %ERRORLEVEL% GTR 0 (
-	%CECHO% Red ERROR: Reflect returned exit code %ERRORLEVEL%
-	EXIT /B 3
+  %CECHO% Red ERROR: Reflect returned exit code %ERRORLEVEL%
+  EXIT /B 3
 )
 
 ECHO.
@@ -51,16 +51,16 @@ ECHO.
 "%TrueCrypt%" /dismount %BackupTargetLetter% /quit
 
 IF %ERRORLEVEL% GTR 0 (
-	%CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
-	EXIT /B 4
+  %CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
+  EXIT /B 4
 )
 
 %CECHO% DarkGray Unmounting drive %TcVolumeLetter%...
 %RemoveDrive% %TcVolumeLetter% -l -b
 
 IF %ERRORLEVEL% GTR 0 (
-	%CECHO% Red ERROR: RemoveDrive returned exit code %ERRORLEVEL%
-	EXIT /B 5
+  %CECHO% Red ERROR: RemoveDrive returned exit code %ERRORLEVEL%
+  EXIT /B 5
 )
 
 %CECHO% Green Done, thanks!

@@ -17,52 +17,52 @@
 
 1. Stelle mit `diskmgmt.msc` sicher, dass die "externe Festplatte" des mobilen Geräts unter `E:` verfügbar ist
 1. Kopiere die Datei `setup\backstage.inf` ins Root-Verzeichnis
-    1. Ändere in der _kopierten_ `backstage.inf` das `LABEL` auf `Flitzer III`
-    1. Verstecke die kopierte Datei
+  1. Ändere in der _kopierten_ `backstage.inf` das `LABEL` auf `Flitzer III`
+  1. Verstecke die kopierte Datei
 1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
-    - Verwende `icons\backstage-mobile.ico` als Icon für die Verknüpfung
+  - Verwende `icons\backstage-mobile.ico` als Icon für die Verknüpfung
 
 ## Setup Maschine
 
 1. Installiere [TrueCrypt](https://www.truecrypt71a.com) Version 7.1a vom 07.02.2012
-    - _Hinweis: Nach der Installation kann das Tray-Icon entfernt werden_
+  - _Hinweis: Nach der Installation kann das Tray-Icon entfernt werden_
 1. Installiere [Macrium Reflect Free](http://www.macrium.com/reflectfree.aspx) Version 6.7.708 vom 29.06.2015  
-    _Hinweis: In den Defaults bei Advanced die 20 Sekunden Vorlaufzeit abschalten_
+  _Hinweis: In den Defaults bei Advanced die 20 Sekunden Vorlaufzeit abschalten_
 1. Klone dieses Repository nach `%ALLUSERSPROFILE%\backstage` bzw. `C:\ProgramData\backstage`
 1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
-    - Verwende `icons\backstage.ico` als Icon für die Verknüpfung
+  - Verwende `icons\backstage.ico` als Icon für die Verknüpfung
 1. Stelle mit `diskmgmt.msc` sicher, dass die externe Festplatte unter `S:` verfügbar ist
 1. Stelle sicher, dass der Laufwerksbuchstabe `T:` für gemountete TrueCrypt-Festplatten frei ist
 
 ## Setup externe Festplatte
 
 1. Formatiere die Festplatte mit dem NTFS-Dateisystem
-    1. Schalte die Festplatten-Indizierung aus
-    1. Gib der Gruppe _JEDER_ alle Berechtigungen
-    1. Ändere den Namen der Festplatte auf `Backup NN`
+  1. Schalte die Festplatten-Indizierung aus
+  1. Gib der Gruppe _JEDER_ alle Berechtigungen
+  1. Ändere den Namen der Festplatte auf `Backup NN`
 1. Kopiere den Inhalt von `setup\backup-drive` ins Root-Verzeichnis
-    1. Ändere in der _kopierten_ `autorun.ini` das `LABEL` auf `Backup NN`
-    1. Verstecke die kopierten Dateien
+  1. Ändere in der _kopierten_ `autorun.ini` das `LABEL` auf `Backup NN`
+  1. Verstecke die kopierten Dateien
 
 ## Setup TrueCrypt-Festplatte
 
 1. Starte TrueCrypt _**elevated**_ (bei Beendigung der Formatierung mit NTFS werden Admin-Berechtigungen benötigt)
 1. Erstelle eine neue Volume
-    1. `Create an encrypted file container`
-    1. Bei der "_administrator privileges_"-Warnung mit **Nein** fortfahren
-    1. `Standard TrueCrypt volume`
-    1. Volume Location: `S:\Att22 Florian Win10.tc` (siehe [Namensgebung Backups](#namensgebung-backups))
-    1. Encryption Options auf Default lassen
-    1. Volume Size: _nach Bedarf_ (Daumenregel: `Aktuelle Auslastung + ~25% Potenzial`)
-    1. Volume Password: _vom Maschinen-Besitzer zu wählen_
-    1. Volume Format: `NTFS`
+  1. `Create an encrypted file container`
+  1. Bei der "_administrator privileges_"-Warnung mit **Nein** fortfahren
+  1. `Standard TrueCrypt volume`
+  1. Volume Location: `S:\Att22 Florian Win10.tc` (siehe [Namensgebung Backups](#namensgebung-backups))
+  1. Encryption Options auf Default lassen
+  1. Volume Size: _nach Bedarf_ (Daumenregel: `Aktuelle Auslastung + ~25% Potenzial`)
+  1. Volume Password: _vom Maschinen-Besitzer zu wählen_
+  1. Volume Format: `NTFS`
 1. Mounte erstellte Volume auf Laufwerk `T:`
-    1. Schalte die Festplatten-Indizierung aus
-    1. Gib der Gruppe _JEDER_ alle Berechtigungen
-    1. Ändere den Namen der Festplatte auf `Att22 Florian Win10` (siehe [Namensgebung Backups](#namensgebung-backups))
+  1. Schalte die Festplatten-Indizierung aus
+  1. Gib der Gruppe _JEDER_ alle Berechtigungen
+  1. Ändere den Namen der Festplatte auf `Att22 Florian Win10` (siehe [Namensgebung Backups](#namensgebung-backups))
 1. Kopiere den Inhalt von `setup\encrypted-drive` ins Root-Verzeichnis
-    1. Ändere in der _kopierten_ `autorun.ini` das `LABEL` auf `Att22 Florian Win10` (siehe [Namensgebung Backups](#namensgebung-backups))
-    1. Verstecke die kopierten Dateien
+  1. Ändere in der _kopierten_ `autorun.ini` das `LABEL` auf `Att22 Florian Win10` (siehe [Namensgebung Backups](#namensgebung-backups))
+  1. Verstecke die kopierten Dateien
 
 ## Setup Choco-Upgrade
 
@@ -72,13 +72,13 @@ Ich verwende [chocolatey.org](http://chocolatey.org), damit ich Maschinen schnel
 1. Starte Scheduled Tasks: `taskschd.msc`
 1. _[Optional]_ Gehe in Unterordner `_Custom`
 1. Erstelle neuen Task:
-    1. Name: **choco-upgrade**
-    1. :ballot_box_with_check: **Run only when user is logged on**
-    1. :ballot_box_with_check: **Run with highest privileges**
-    1. Trigger: **At log on**
-    1. Action: Start a program:
-        1. Program/script: `%ALLUSERSPROFILE%\backstage\scripts\choco-upgrade.bat`
-        1. Start in: `%ALLUSERSPROFILE%\backstage\scripts\`
+  1. Name: **choco-upgrade**
+  1. :ballot_box_with_check: **Run only when user is logged on**
+  1. :ballot_box_with_check: **Run with highest privileges**
+  1. Trigger: **At log on**
+  1. Action: Start a program:
+    1. Program/script: `%ALLUSERSPROFILE%\backstage\scripts\choco-upgrade.bat`
+    1. Start in: `%ALLUSERSPROFILE%\backstage\scripts\`
 
 ## Namensgebung Backups
 
@@ -99,10 +99,10 @@ Wenn nicht das Betriebssystem gesichert wird, kann die Wahl des Namens entsprech
 ## Wiederherstellung
 
 1. Verwende Standard WindowsPE Image, das mit _Macrium Reflect_ erstellt werden kann
-    - Aufpassen bei PE Architektur: **32 Bit** kann auf beiden Architekturen verwendet werden
+  - Aufpassen bei PE Architektur: **32 Bit** kann auf beiden Architekturen verwendet werden
 1. Entschlüssle das Backup zuerst auf einer Maschine mit TrueCrypt auf eine andere USB-Festplatte (bevorzugterweise USB 3)
-    - WindowsPE hat nur 512MB RAM zur Verfügung - das dauert dann, wenn entschlüsselt _und_ wiederhergestellt wird
-    - WindowsPE kennt TrueCrypt nicht - es kann auf ein Image integriert werden, ist aber durch das Entschlüsseln _vor_ dem Wiederherstellungsvorgang nicht notwendig
+  - WindowsPE hat nur 512MB RAM zur Verfügung - das dauert dann, wenn entschlüsselt _und_ wiederhergestellt wird
+  - WindowsPE kennt TrueCrypt nicht - es kann auf ein Image integriert werden, ist aber durch das Entschlüsseln _vor_ dem Wiederherstellungsvorgang nicht notwendig
 
 ## Hintergrund-Geschichte
 

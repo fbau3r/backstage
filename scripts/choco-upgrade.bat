@@ -9,7 +9,7 @@ TITLE Backstage - Chocolatey Upgrade
 %ChocoUpgradeCheck%
 
 IF %ERRORLEVEL% EQU 0 (
-	EXIT /B 0
+  EXIT /B 0
 )
 
 %CECHO% Cyan Press ENTER to install Upgrades, or CTRL+C to abort
@@ -18,8 +18,8 @@ PAUSE
 %ChocoUpgrade%
 
 IF %ERRORLEVEL% GTR 0 (
-	%CECHO% Red ERROR: Upgrade returned exit code %ERRORLEVEL%
-	EXIT /B 1
+  %CECHO% Red ERROR: Upgrade returned exit code %ERRORLEVEL%
+  EXIT /B 1
 )
 
 %CECHO% Green Done, thanks!
