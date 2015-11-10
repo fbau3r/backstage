@@ -6,7 +6,7 @@ $host.ui.rawui.windowtitle = 'Backstage - Chocolatey Upgrade'
 Write-Host -ForegroundColor DarkGray "Checking for upgrades..."
 
 $chocoOutdated = @( choco outdated -r | select -skip 3 | where { $_.Contains('|') } )
-$outdatedCount = $chocoOutdated.Count
+$outdatedCount = ($chocoOutdated | where { -not $_.EndsWith('|true') }).Count
 
 if($outdatedCount -eq 0 )
 {
