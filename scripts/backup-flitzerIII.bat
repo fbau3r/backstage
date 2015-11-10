@@ -5,6 +5,7 @@ SET BackupTarget=Y:\Mobile\Flo
 SET BackupSource=E:
 SET RobocopyBackupExcludeExtra=/XX
 SET CECHO=POWERSHELL /noprofile /nologo Write-Host -ForegroundColor
+SET RemoveDrive=%~dp0..\lib\removedrive.exe
 
 TITLE Backstage - %DeviceName%
 
@@ -41,6 +42,14 @@ call:runRobocopy "WhatsApp" ".nomedia"
 
 ECHO.
 %CECHO% Green Backup completed successfully!
+
+%CECHO% DarkGray Unmounting drive %BackupSource%...
+%RemoveDrive% %BackupSource% -l -b
+
+IF %ERRORLEVEL% GTR 0 (
+  %CECHO% Red ERROR: RemoveDrive returned exit code %ERRORLEVEL%
+  EXIT /B 5
+)
 
 %CECHO% Green Done, thanks!
 PAUSE

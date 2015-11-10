@@ -2,12 +2,14 @@
 
 SET BackupName=Att22 Daniela Win7 NTFS 1360GB
 SET ReflectProfile=D:\Users\Dani\Documents\Reflect\%BackupName%.xml
-SET TcVolumePath=S:\%BackupName%.tc
+SET TcVolumeLetter=S:
+SET TcVolumePath=%TcVolumeLetter%\%BackupName%.tc
 SET BackupTargetLetter=T
 SET BackupTarget=%BackupTargetLetter%:
 SET CECHO=POWERSHELL /noprofile /nologo Write-Host -ForegroundColor
 SET TrueCrypt=%ProgramFiles%\TrueCrypt\TrueCrypt.exe
 SET Reflect=%ProgramFiles%\Macrium\Reflect\Reflect.exe
+SET RemoveDrive=%~dp0..\lib\removedrive.exe
 
 TITLE Backstage - %BackupName%
 
@@ -51,6 +53,14 @@ ECHO.
 IF %ERRORLEVEL% GTR 0 (
 	%CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
 	EXIT /B 4
+)
+
+%CECHO% DarkGray Unmounting drive %TcVolumeLetter%...
+%RemoveDrive% %TcVolumeLetter% -l -b
+
+IF %ERRORLEVEL% GTR 0 (
+	%CECHO% Red ERROR: RemoveDrive returned exit code %ERRORLEVEL%
+	EXIT /B 5
 )
 
 %CECHO% Green Done, thanks!
