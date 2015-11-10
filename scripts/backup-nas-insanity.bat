@@ -34,7 +34,9 @@ call:runRobocopy "Backup" "*.mrimg *.img *.tc *.backstage"
 call:runRobocopy "Mobile"
 call:runRobocopy "Shared Music"
 call:runRobocopy "Shared Pictures"
-call:runRobocopy "Shared Videos" "" "Movies Series"
+call:runRobocopy "Shared Videos"
+call:runRobocopy "Videothek\Filme-Kinder"
+call:runRobocopy "Videothek\Serien-Kinder"
 REM not included intentionally: uTorrent
 
 
