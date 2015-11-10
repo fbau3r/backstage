@@ -45,6 +45,11 @@ ECHO.
 %CECHO% DarkGray Unmounting TC volume...
 "%TrueCrypt%" /dismount %BackupTargetLetter% /quit
 
+IF %ERRORLEVEL% GTR 0 (
+	%CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
+	EXIT /B 4
+)
+
 %CECHO% Green Done, thanks!
 PAUSE
 goto:eof
