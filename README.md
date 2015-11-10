@@ -20,7 +20,7 @@
     1. Ändere in der _kopierten_ `backstage.inf` das `LABEL` auf `Flitzer III`
     1. Verstecke die kopierte Datei
 1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
-    - Verwende `backstage-mobile.ico` als Icon für die Verknüpfung
+    - Verwende `icons\backstage-mobile.ico` als Icon für die Verknüpfung
 
 ## Setup Maschine
 
@@ -30,7 +30,7 @@
     _Hinweis: In den Defaults bei Advanced die 20 Sekunden Vorlaufzeit abschalten_
 1. Klone dieses Repository nach `%ALLUSERSPROFILE%\backstage` bzw. `C:\ProgramData\backstage`
 1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
-    - Verwende `backstage.ico` als Icon für die Verknüpfung
+    - Verwende `icons\backstage.ico` als Icon für die Verknüpfung
 1. Stelle mit `diskmgmt.msc` sicher, dass die externe Festplatte unter `S:` verfügbar ist
 1. Stelle sicher, dass der Laufwerksbuchstabe `T:` für gemountete TrueCrypt-Festplatten frei ist
 
