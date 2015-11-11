@@ -6,7 +6,8 @@ $host.ui.rawui.windowtitle = 'Backstage - Chocolatey Upgrade'
 Write-Host -ForegroundColor DarkGray "Checking for upgrades..."
 
 $chocoOutdated = @( choco outdated -r | select -skip 3 | where { $_.Contains('|') } )
-$outdatedCount = ($chocoOutdated | where { -not $_.EndsWith('|true') }).Count
+$chocoOutdatedAndNotPinned = @( $chocoOutdated | where { -not $_.EndsWith('|true') } )
+$outdatedCount = $chocoOutdatedAndNotPinned.Count
 
 $chocoPinned = $chocoOutdated | where { $_.EndsWith('|true') }
 $pinnedCount = $chocoPinned.Count
@@ -25,6 +26,6 @@ if($outdatedoCunt -eq 0 )
 else
 {
   Write-Host -ForegroundColor Green ("Updates available: {0}" -f $outdatedCount)
-  $chocoOutdated | sort-object | %{ Write-Host -ForegroundColor Yellow ("- {0} from {1} to {2}" -f $_.Split('|')[0],  $_.Split('|')[1],  $_.Split('|')[2] ) }
+  $chocoOutdatedAndNotPinned | sort-object | %{ Write-Host -ForegroundColor Yellow ("- {0} from {1} to {2}" -f $_.Split('|')[0],  $_.Split('|')[1],  $_.Split('|')[2] ) }
   EXIT $outdatedCount
 }
