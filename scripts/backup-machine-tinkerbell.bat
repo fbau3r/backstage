@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET BackupName=Att22 Daniela Win7 NTFS 1360GB
+SET BackupName=Att22 Daniela Win10 NTFS 1360GB
 SET ReflectProfile=D:\Users\Dani\Documents\Reflect\%BackupName%.xml
 SET TcVolumeLetter=S:
 SET TcVolumePath=%TcVolumeLetter%\%BackupName%.tc
