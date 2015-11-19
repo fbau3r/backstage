@@ -13,7 +13,19 @@
 1. [Wiederherstellung](#wiederherstellung)
 1. [Hintergrund-Geschichte](#hintergrund-geschichte)
 
-## Setup mobiles Gerät
+## Setup mobiles Gerät (MTP)
+
+Bevorzugt. MTP steht für "Media Transfer Protocol" und trifft zu, wenn das angesteckte Gerät als Gerät _ohne Laufwerksbuchstaben_ angezeigt wird. Es muss vorm Abstecken nicht ausgeworfen werden und vor dem Backup muss am mobilen Gerät keine extra Aktion durchgeführt werden.
+
+1. Installiere [FreeFileSync](http://www.freefilesync.org/download.php)
+1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
+  - Verwende `icons\backstage-mobile.ico` als Icon für die Verknüpfung
+
+
+
+## Setup mobiles Gerät (UMS)
+
+UMS steht für "USB Mass Storage" und trifft zu, wenn für das angesteckte Gerät ein Laufwerksbuchstabe vergeben wird.
 
 1. Stelle mit `diskmgmt.msc` sicher, dass die "externe Festplatte" des mobilen Geräts unter `E:` verfügbar ist
 1. Kopiere die Datei `setup\backstage.inf` ins Root-Verzeichnis
