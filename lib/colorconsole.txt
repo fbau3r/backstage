@@ -1,0 +1,5 @@
+colorconsole v1.0.0
+
+Repository: https://github.com/fbau3r/colorconsole
+Download: https://github.com/fbau3r/colorconsole/releases/download/v1.0.0/colorconsole.exe
+Date downloaded: 2015-11-23
