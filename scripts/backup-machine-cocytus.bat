@@ -6,7 +6,7 @@ SET TcVolumeLetter=S:
 SET TcVolumePath=%TcVolumeLetter%\%BackupName%.tc
 SET BackupTargetLetter=T
 SET BackupTarget=%BackupTargetLetter%:
-SET CECHO=POWERSHELL /noprofile /nologo Write-Host -ForegroundColor
+SET ColorConsole=%~dp0..\lib\colorconsole.exe
 SET TrueCrypt=%ProgramFiles%\TrueCrypt\TrueCrypt.exe
 SET Reflect=%ProgramFiles%\Macrium\Reflect\Reflect.exe
 SET RemoveDrive=%~dp0..\lib\removedrive.exe
@@ -15,53 +15,53 @@ TITLE Backstage - %BackupName%
 
 :WaitForTcVolumePath
 IF NOT EXIST "%TcVolumePath%" (
-  %CECHO% Cyan * Plugin Harddisk, so "%TcVolumePath%" is available
+  %ColorConsole% {{Cyan}}* Plugin Harddisk, so "%TcVolumePath%" is available
   PAUSE
   GOTO WaitForTcVolumePath
 )
 
 IF NOT EXIST "%ReflectProfile%" (
-  %CECHO% Red ERROR: Reflect profile does not exist
+  %ColorConsole% {{Red}}ERROR: Reflect profile does not exist
   EXIT /B 1
 )
 
-%CECHO% DarkGray Mounting TC volume...
+%ColorConsole% {{DarkGray}}Mounting TC volume...
 "%TrueCrypt%" /volume "%TcVolumePath%" /letter %BackupTargetLetter% /history n /quit
 
 IF %ERRORLEVEL% GTR 0 (
-  %CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
+  %ColorConsole% {{Red}}ERROR: TrueCrypt returned exit code %ERRORLEVEL%
   EXIT /B 2
 )
 
-%CECHO% DarkGray Cleaning up old backup...
+%ColorConsole% {{DarkGray}}Cleaning up old backup...
 IF EXIST "%BackupTarget%%BackupName%*.mrimg" ( DEL /F /Q "%BackupTarget%%BackupName%*.mrimg")
 
-%CECHO% DarkGray Now wait for Backup to complete...
+%ColorConsole% {{DarkGray}}Now wait for Backup to complete...
 "%Reflect%" -e -w -full "%ReflectProfile%"
 
 IF %ERRORLEVEL% GTR 0 (
-  %CECHO% Red ERROR: Reflect returned exit code %ERRORLEVEL%
+  %ColorConsole% {{Red}}ERROR: Reflect returned exit code %ERRORLEVEL%
   EXIT /B 3
 )
 
 ECHO.
-%CECHO% Green Backup completed successfully!
+%ColorConsole% {{Green}}Backup completed successfully!
 
-%CECHO% DarkGray Unmounting TC volume...
+%ColorConsole% {{DarkGray}}Unmounting TC volume...
 "%TrueCrypt%" /dismount %BackupTargetLetter% /quit
 
 IF %ERRORLEVEL% GTR 0 (
-  %CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
+  %ColorConsole% {{Red}}ERROR: TrueCrypt returned exit code %ERRORLEVEL%
   EXIT /B 4
 )
 
-%CECHO% DarkGray Unmounting drive %TcVolumeLetter%...
+%ColorConsole% {{DarkGray}}Unmounting drive %TcVolumeLetter%...
 %RemoveDrive% %TcVolumeLetter% -l -b
 
 IF %ERRORLEVEL% GTR 0 (
-  %CECHO% Red ERROR: RemoveDrive returned exit code %ERRORLEVEL%
+  %ColorConsole% {{Red}}ERROR: RemoveDrive returned exit code %ERRORLEVEL%
   EXIT /B 5
 )
 
-%CECHO% Green Done, thanks!
+%ColorConsole% {{Green}}Done, thanks!
 PAUSE

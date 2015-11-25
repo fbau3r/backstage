@@ -4,13 +4,13 @@ SET DeviceName=hgalaxy
 SET BackupTarget=%USERPROFILE%\Pictures\_Mobil\Galaxy
 SET BackupSource=E:
 SET RobocopyBackupExcludeExtra=/XX
-SET CECHO=POWERSHELL /noprofile /nologo Write-Host -ForegroundColor
+SET ColorConsole=%~dp0..\lib\colorconsole.exe
 
 TITLE Backstage - %DeviceName%
 
 :WaitForDevicePath
 IF NOT EXIST "%BackupSource%\backstage.inf" (
-  %CECHO% Cyan * Plugin %DeviceName%, so %BackupSource%\backstage.inf is available
+  %ColorConsole% {{Cyan}}* Plugin %DeviceName%, so %BackupSource%\backstage.inf is available
   PAUSE
   GOTO WaitForDevicePath
 )
@@ -18,17 +18,17 @@ IF NOT EXIST "%BackupSource%\backstage.inf" (
 :WaitForSpecificDevicePath
 TYPE "%BackupSource%\backstage.inf" | FIND "%DeviceName%" > nul
 IF %ERRORLEVEL% EQU 1 (
-  %CECHO% Cyan * Could not verify device %DeviceName%
+  %ColorConsole% {{Cyan}}* Could not verify device %DeviceName%
   PAUSE
   GOTO WaitForSpecificDevicePath
 )
 
 IF NOT EXIST "%BackupTarget%" (
-  %CECHO% Red ERROR: Backup Target does not exist: %BackupTarget%
+  %ColorConsole% {{Red}}ERROR: Backup Target does not exist: %BackupTarget%
   EXIT /B 1
 )
 
-%CECHO% DarkGray Now wait for Backup to complete...
+%ColorConsole% {{DarkGray}}Now wait for Backup to complete...
 
 
 
@@ -37,9 +37,9 @@ call:runRobocopy "DCIM"
 
 
 ECHO.
-%CECHO% Green Backup completed successfully!
+%ColorConsole% {{Green}}Backup completed successfully!
 
-%CECHO% Green Done, thanks!
+%ColorConsole% {{Green}}Done, thanks!
 PAUSE
 goto:eof
 
@@ -56,7 +56,7 @@ goto:eof
 :runRobocopyMirror
 
   ECHO.
-  %CECHO% Yellow \"Start Backup of '%~1'...\"
+  %ColorConsole% {{Yellow}}\"Start Backup of '%~1'...\"
 
   ROBOCOPY /MIR /B /FFT /R:3 /W:10 /Z /NP /NDL %~4 ^
     "%BackupSource%\%~1" "%BackupTarget%\%~1" ^
@@ -64,10 +64,10 @@ goto:eof
     /XD .svn _svn .dthumb .thumbnails .Shared .trash .sync %~3
 
   IF %ERRORLEVEL% LSS 8 (
-    %CECHO% Green Done
+    %ColorConsole% {{Green}}Done
   ) ELSE (
-    %CECHO% Red ERROR: Robocopy returned exit code %~1
-    %CECHO% DarkGray For details, see http://ss64.com/nt/robocopy-exit.html
+    %ColorConsole% {{Red}}ERROR: Robocopy returned exit code %~1
+    %ColorConsole% {{DarkGray}}For details, see http://ss64.com/nt/robocopy-exit.html
     EXIT /B 1
   )
 

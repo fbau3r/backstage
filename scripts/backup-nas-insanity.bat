@@ -5,26 +5,26 @@ SET TcVolumePath=S:\Att22 Insanity 3000GB.tc
 SET BackupTargetLetter=T
 SET BackupTarget=%BackupTargetLetter%:
 SET BackupSource=Y:
-SET CECHO=POWERSHELL /noprofile /nologo Write-Host -ForegroundColor
+SET ColorConsole=%~dp0..\lib\colorconsole.exe
 
 TITLE Backstage - Insanity
 
 :WaitForTcVolumePath
 IF NOT EXIST "%TcVolumePath%" (
-  %CECHO% Cyan * Plugin Harddisk, so "%TcVolumePath%" is available
+  %ColorConsole% {{Cyan}}* Plugin Harddisk, so "%TcVolumePath%" is available
   PAUSE
   GOTO WaitForTcVolumePath
 )
 
 IF NOT EXIST "%BackupSource%" (
-  %CECHO% Red ERROR: Backup Source does not exist
+  %ColorConsole% {{Red}}ERROR: Backup Source does not exist
   EXIT /B 1
 )
 
-%CECHO% DarkGray Mounting TC volume...
+%ColorConsole% {{DarkGray}}Mounting TC volume...
 "%TrueCrypt%" /volume "%TcVolumePath%" /letter %BackupTargetLetter% /history n /quit
 
-%CECHO% DarkGray Now wait for Backup to complete...
+%ColorConsole% {{DarkGray}}Now wait for Backup to complete...
 
 
 
@@ -42,17 +42,17 @@ REM not included intentionally: uTorrent
 
 
 ECHO.
-%CECHO% Green Backup completed successfully!
+%ColorConsole% {{Green}}Backup completed successfully!
 
-%CECHO% DarkGray Unmounting TC volume...
+%ColorConsole% {{DarkGray}}Unmounting TC volume...
 "%TrueCrypt%" /dismount %BackupTargetLetter% /quit
 
 IF %ERRORLEVEL% GTR 0 (
-  %CECHO% Red ERROR: TrueCrypt returned exit code %ERRORLEVEL%
+  %ColorConsole% {{Red}}ERROR: TrueCrypt returned exit code %ERRORLEVEL%
   EXIT /B 4
 )
 
-%CECHO% Green Done, thanks!
+%ColorConsole% {{Green}}Done, thanks!
 PAUSE
 goto:eof
 
@@ -61,7 +61,7 @@ goto:eof
 :runRobocopy
 
   ECHO.
-  %CECHO% Yellow \"Start Backup of '%~1'...\"
+  %ColorConsole% {{Yellow}}\"Start Backup of '%~1'...\"
 
   ROBOCOPY /MIR /B /FFT /R:3 /W:10 /Z /NP /NDL ^
     "%BackupSource%\%~1" "%BackupTarget%\%~1" ^
@@ -69,10 +69,10 @@ goto:eof
     /XD .svn _svn .dthumb .Shared .trash .sync %~3
 
   IF %ERRORLEVEL% LSS 8 (
-    %CECHO% Green Done
+    %ColorConsole% {{Green}}Done
   ) ELSE (
-    %CECHO% Red ERROR: Robocopy returned exit code %~1
-    %CECHO% DarkGray For details, see http://ss64.com/nt/robocopy-exit.html
+    %ColorConsole% {{Red}}ERROR: Robocopy returned exit code %~1
+    %ColorConsole% {{DarkGray}}For details, see http://ss64.com/nt/robocopy-exit.html
     EXIT /B 1
   )
 
