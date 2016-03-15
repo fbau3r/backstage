@@ -43,7 +43,7 @@
         </GlobalFilter>
         <FolderPairs>
             <Pair>
-                <Left>mtp:\A34\SD card\games</Left>
+                <Left>mtp:\A34\SD-Karte\games</Left>
                 <Right>Y:\Mobile\Flo\games</Right>
                 <SyncConfig>
                     <Variant>Mirror</Variant>
@@ -72,15 +72,15 @@
                 </LocalFilter>
             </Pair>
             <Pair>
-                <Left>mtp:\A34\SD card\DCIM</Left>
+                <Left>mtp:\A34\SD-Karte\DCIM</Left>
                 <Right>Y:\Mobile\Flo\DCIM</Right>
             </Pair>
             <Pair>
-                <Left>mtp:\A34\SD card\Recording</Left>
+                <Left>mtp:\A34\SD-Karte\Recording</Left>
                 <Right>Y:\Mobile\Flo\Recording</Right>
             </Pair>
             <Pair>
-                <Left>mtp:\A34\SD card\WhatsApp</Left>
+                <Left>mtp:\A34\SD-Karte\WhatsApp</Left>
                 <Right>Y:\Mobile\Flo\WhatsApp</Right>
             </Pair>
         </FolderPairs>
