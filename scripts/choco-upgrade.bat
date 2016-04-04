@@ -1,10 +1,14 @@
 @ECHO OFF
 
 SET ChocoUpgradeCheck=POWERSHELL -noprofile -nologo -file %~dp0choco-upgrade-check.ps1
-SET ChocoUpgrade=POWERSHELL -noprofile -nologo -command Start-Process choco 'upgrade all' -Verb RunAs -Wait
+SET ChocoUpgrade=POWERSHELL -noprofile -nologo -command Start-Process choco 'upgrade all -y' -Verb RunAs -Wait
 SET ColorConsole=%~dp0..\lib\colorconsole.exe
 
 TITLE Backstage - Chocolatey Upgrade
+
+set delay=10
+ECHO Waiting %delay%s to check for upgrades...
+ping localhost -n %delay%  >nul 2>&1
 
 %ChocoUpgradeCheck%
 
