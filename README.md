@@ -115,6 +115,7 @@ Wenn nicht das Betriebssystem gesichert wird, kann die Wahl des Namens entsprech
 1. Entschlüssle das Backup zuerst auf einer Maschine mit TrueCrypt auf eine andere USB-Festplatte (bevorzugterweise USB 3)
   - WindowsPE hat nur 512MB RAM zur Verfügung - das dauert dann, wenn entschlüsselt _und_ wiederhergestellt wird
   - WindowsPE kennt TrueCrypt nicht - es kann auf ein Image integriert werden, ist aber durch das Entschlüsseln _vor_ dem Wiederherstellungsvorgang nicht notwendig
+1. Fahre einmal nach Wiederherstellung des Backups Windows 10 im Abgesicherten Modus mit Netzwerktreibern hoch, um eventuelle Fehlkonfigurationen zu beheben (Quelle: [SuperUser.com](http://superuser.com/a/513746))
 
 ## Hintergrund-Geschichte
 
