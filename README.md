@@ -129,12 +129,13 @@ Im Mai 2013 erreichte ich den ersten Schritt von Backstage: ein niedergeschriebe
 
 Anschließend habe ich das Programm _Backstage_ Entwickelt, das den Backup-Vorgang vereinfacht. Die Idee war eigentlich simpel: **starte im Windows Task Scheduler das Programm, warte auf die angesteckte Festplatte, erstelle das Backup, wirf die Festplatte aus**.
 
-Inzwischen - Oktober 2015 - sind etwas mehr als zwei Jahre vergangen. Ich habe bisher vier der erstellten Backup-Images wiederhergestellt:
+Inzwischen - April 2016 - sind etwas mehr als zwei Jahre vergangen. Ich habe bisher fünf der erstellten Backup-Images erfolgreich wiederhergestellt:
 
 1. Initialer Test im Jahr 2013
 1. März 2014: Wiederherstellung Hans' Daten nach System-Upgrade
 1. April 2015: Wiederherstellung meiner Maschine nach einem Beta-Test von Windows 10
 1. Juli 2015: Wiederherstellung Magdas Laptop
+1. April 2016: Wiederherstellung meiner Maschine nach einer fehlgeschlagenen Grafikkarten-Installation
 
 Außerdem habe ich inzwischen Batch-Scripts erstellt, mit denen die Daten unserer mobilen Geräte gesichert werden. Dazu wird das Handy angesteckt und die Dateien werden mittels `robocopy` auf den NAS kopiert.
 
