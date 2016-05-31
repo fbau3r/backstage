@@ -58,7 +58,7 @@
         <OnCompletion/>
     </MainConfig>
     <BatchConfig>
-        <HandleError>Stop</HandleError>
+        <HandleError>Popup</HandleError>
         <RunMinimized>true</RunMinimized>
         <LogfileFolder Limit="0"/>
     </BatchConfig>
