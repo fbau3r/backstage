@@ -25,7 +25,7 @@ Wenn das Repository geklont werden soll, ist in allen weiteren Kapiteln dieser `
 MTP steht für "Media Transfer Protocol" und trifft zu, wenn das angesteckte Gerät als Gerät _ohne Laufwerksbuchstaben_ angezeigt wird. Es muss vorm Abstecken nicht ausgeworfen werden und vor dem Backup muss am mobilen Gerät keine extra Aktion durchgeführt werden.
 
 1. Installiere [FreeFileSync](http://www.freefilesync.org/download.php)
-1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
+1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop (stelle `cmd /k ` vor den Pfad in der Verknüpfung)
   - Verwende `icons\backstage-mobile.ico` als Icon für die Verknüpfung
 
 ## Setup Maschine
@@ -35,7 +35,7 @@ MTP steht für "Media Transfer Protocol" und trifft zu, wenn das angesteckte Ger
 1. Installiere [Macrium Reflect Free](http://www.macrium.com/reflectfree.aspx) Version 6.7.708 vom 29.06.2015  
   _Hinweis: In den Defaults bei Advanced die 20 Sekunden Vorlaufzeit abschalten_
 1. Klone dieses Repository nach `%ALLUSERSPROFILE%\backstage` bzw. `C:\ProgramData\backstage`
-1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop
+1. Lege Verknüpfungen auf die entsprechenden `scripts\backup-*.bat` auf den Desktop (stelle `cmd /k ` vor den Pfad in der Verknüpfung)
   - Verwende `icons\backstage.ico` als Icon für die Verknüpfung
 1. Stelle mit `diskmgmt.msc` sicher, dass die externe Festplatte unter `S:` verfügbar ist
 1. Stelle sicher, dass der Laufwerksbuchstabe `T:` für gemountete TrueCrypt-Festplatten frei ist
