@@ -4,6 +4,7 @@
 
 ## Inhalt
 
+1. [Setup neuer Branch](#setup-neuer-branch)
 1. [Setup mobiles Gerät](#setup-mobiles-gerät)
 1. [Setup Maschine](#setup-maschine)
 1. [Setup externe Festplatte](#setup-externe-festplatte)
@@ -12,6 +13,12 @@
 1. [Namensgebung Backups](#namensgebung-backups)
 1. [Wiederherstellung](#wiederherstellung)
 1. [Hintergrund-Geschichte](#hintergrund-geschichte)
+
+## Setup neuer Branch
+
+Für einen neuen Benutzer wird ein neuer Branch `backup-xyz` erstellt, in dem anschließend die Details zum Setup vom Template abgeleitet und eingecheckt werden.
+
+Wenn das Repository geklont werden soll, ist in allen weiteren Kapiteln dieser `backup-xyz` Branch gemeint.
 
 ## Setup mobiles Gerät
 
