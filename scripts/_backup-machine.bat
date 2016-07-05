@@ -6,15 +6,15 @@ IF "%BackupName%"=="" (
 )
 
 REM SET Default values if not overridden
-IF "%ReflectProfile%"==""     ( SET ReflectProfile=%USERPROFILE%\Documents\Reflect\%BackupName%.xml )
-IF "%TcVolumeLetter%"==""     ( SET TcVolumeLetter=S: )
-IF "%TcVolumePath%"==""       ( SET TcVolumePath=%TcVolumeLetter%\%BackupName%.tc )
-IF "%BackupTargetLetter%"=="" ( SET BackupTargetLetter=T )
-IF "%BackupTarget%"==""       ( SET BackupTarget=%BackupTargetLetter%: )
-IF "%TrueCrypt%"==""          ( SET TrueCrypt=%ProgramFiles%\TrueCrypt\TrueCrypt.exe )
-IF "%Reflect%"==""            ( SET Reflect=%ProgramFiles%\Macrium\Reflect\Reflect.exe )
-IF "%RemoveDrive%"==""        ( SET RemoveDrive=%~dp0..\lib\removedrive.exe )
-IF "%ColorConsole%"==""       ( SET ColorConsole=%~dp0..\lib\colorconsole.exe )
+IF "%ReflectProfile%"==""     (SET ReflectProfile=%USERPROFILE%\Documents\Reflect\%BackupName%.xml)
+IF "%TcVolumeLetter%"==""     (SET TcVolumeLetter=S:)
+IF "%TcVolumePath%"==""       (SET TcVolumePath=%TcVolumeLetter%\%BackupName%.tc)
+IF "%BackupTargetLetter%"=="" (SET BackupTargetLetter=T)
+IF "%BackupTarget%"==""       (SET BackupTarget=%BackupTargetLetter%:)
+IF "%TrueCrypt%"==""          (SET TrueCrypt=%ProgramFiles%\TrueCrypt\TrueCrypt.exe)
+IF "%Reflect%"==""            (SET Reflect=%ProgramFiles%\Macrium\Reflect\Reflect.exe)
+IF "%RemoveDrive%"==""        (SET RemoveDrive=%~dp0..\lib\removedrive.exe)
+IF "%ColorConsole%"==""       (SET ColorConsole=%~dp0..\lib\colorconsole.exe)
 
 IF NOT EXIST %ColorConsole% (
     ECHO Error: Cannot find ColorConsole at "%ColorConsole%"

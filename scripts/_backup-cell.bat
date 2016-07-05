@@ -16,8 +16,8 @@ IF "%RevisionsDirectory%"=="" (
 )
 
 REM SET Default values if not overridden
-IF "%FreeFileSync%"==""       ( SET FreeFileSync=%ProgramFiles%\FreeFileSync\FreeFileSync.exe )
-IF "%ColorConsole%"==""       ( SET ColorConsole=%~dp0..\lib\colorconsole.exe )
+IF "%FreeFileSync%"==""       (SET FreeFileSync=%ProgramFiles%\FreeFileSync\FreeFileSync.exe)
+IF "%ColorConsole%"==""       (SET ColorConsole=%~dp0..\lib\colorconsole.exe)
 
 IF NOT EXIST %ColorConsole% (
     ECHO Error: Cannot find ColorConsole at "%ColorConsole%"
