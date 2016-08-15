@@ -42,7 +42,7 @@
         </GlobalFilter>
         <FolderPairs>
             <Pair>
-                <Left>mtp:\HGalaxy\SD-Karte\DCIM</Left>
+                <Left>mtp:\GT-I9100\Card\DCIM</Left>
                 <Right>%USERPROFILE%\Pictures\_Mobil\Galaxy\DCIM</Right>
             </Pair>
         </FolderPairs>
