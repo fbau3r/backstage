@@ -35,6 +35,7 @@
                 <Item>*\.dthumb\</Item>
                 <Item>*\.shared\</Item>
                 <Item>*\.nomedia</Item>
+                <Item>*\.aux\</Item>
             </Exclude>
             <TimeSpan Type="None">0</TimeSpan>
             <SizeMin Unit="None">0</SizeMin>
@@ -42,7 +43,7 @@
         </GlobalFilter>
         <FolderPairs>
             <Pair>
-                <Left>mtp:\HGalaxy\SD-Karte\DCIM</Left>
+                <Left>mtp:\LIFETAB_S785X\SD-Karte\DCIM</Left>
                 <Right>%USERPROFILE%\Pictures\_Mobil\Lifetab\DCIM</Right>
             </Pair>
         </FolderPairs>
