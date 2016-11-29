@@ -43,7 +43,7 @@
         </GlobalFilter>
         <FolderPairs>
             <Pair>
-                <Left>mtp:\KIW-L21\SD-Karte\games</Left>
+                <Left>mtp:\KIW-L21\Interner Speicher\games</Left>
                 <Right>Y:\Mobile\Flo\games</Right>
                 <SyncConfig>
                     <Variant>Mirror</Variant>
