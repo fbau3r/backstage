@@ -1,7 +1,7 @@
 @ECHO OFF
 
 SET TrueCrypt=%ProgramFiles%\TrueCrypt\TrueCrypt.exe
-SET TcVolumePath=S:\Att22 Insanity 3000GB.tc
+SET TcVolumePath=S:\Att22.tc
 SET BackupTargetLetter=T
 SET BackupTarget=%BackupTargetLetter%:
 SET BackupSource=Y:
