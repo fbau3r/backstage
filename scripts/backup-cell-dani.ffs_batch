@@ -45,6 +45,17 @@
             <Pair>
                 <Left>mtp:\Dani's Galaxy\Card\DCIM</Left>
                 <Right>Y:\Mobile\Dani\DCIM</Right>
+                <LocalFilter>
+                    <Include>
+                        <Item>*</Item>
+                    </Include>
+                    <Exclude>
+                        <Item>\Camera\201?\</Item>
+                    </Exclude>
+                    <TimeSpan Type="None">0</TimeSpan>
+                    <SizeMin Unit="None">0</SizeMin>
+                    <SizeMax Unit="None">0</SizeMax>
+                </LocalFilter>
             </Pair>
             <Pair>
                 <Left>mtp:\Dani's Galaxy\Card\Recording</Left>
@@ -53,6 +64,19 @@
             <Pair>
                 <Left>mtp:\Dani's Galaxy\Card\WhatsApp</Left>
                 <Right>Y:\Mobile\Dani\WhatsApp</Right>
+                <LocalFilter>
+                    <Include>
+                        <Item>*</Item>
+                    </Include>
+                    <Exclude>
+                        <Item>*\Sent\</Item>
+                        <Item>\Backups\</Item>
+                        <Item>\Profile Pictures\</Item>
+                    </Exclude>
+                    <TimeSpan Type="None">0</TimeSpan>
+                    <SizeMin Unit="None">0</SizeMin>
+                    <SizeMax Unit="None">0</SizeMax>
+                </LocalFilter>
             </Pair>
         </FolderPairs>
         <OnCompletion/>

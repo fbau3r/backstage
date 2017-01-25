@@ -74,6 +74,17 @@
             <Pair>
                 <Left>mtp:\KIW-L21\SD-Karte\DCIM</Left>
                 <Right>Y:\Mobile\Flo\DCIM</Right>
+                <LocalFilter>
+                    <Include>
+                        <Item>*</Item>
+                    </Include>
+                    <Exclude>
+                        <Item>\Camera\201?\</Item>
+                    </Exclude>
+                    <TimeSpan Type="None">0</TimeSpan>
+                    <SizeMin Unit="None">0</SizeMin>
+                    <SizeMax Unit="None">0</SizeMax>
+                </LocalFilter>
             </Pair>
             <Pair>
                 <Left>mtp:\KIW-L21\SD-Karte\Recordings</Left>
@@ -82,6 +93,19 @@
             <Pair>
                 <Left>mtp:\KIW-L21\SD-Karte\WhatsApp</Left>
                 <Right>Y:\Mobile\Flo\WhatsApp</Right>
+                <LocalFilter>
+                    <Include>
+                        <Item>*</Item>
+                    </Include>
+                    <Exclude>
+                        <Item>*\Sent\</Item>
+                        <Item>\Backups\</Item>
+                        <Item>\Profile Pictures\</Item>
+                    </Exclude>
+                    <TimeSpan Type="None">0</TimeSpan>
+                    <SizeMin Unit="None">0</SizeMin>
+                    <SizeMax Unit="None">0</SizeMax>
+                </LocalFilter>
             </Pair>
         </FolderPairs>
         <OnCompletion/>
