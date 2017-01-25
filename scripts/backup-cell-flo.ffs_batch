@@ -4,7 +4,7 @@
         <Comparison>
             <Variant>TimeAndSize</Variant>
             <Symlinks>Exclude</Symlinks>
-            <IgnoreTimeShift>2</IgnoreTimeShift>
+            <IgnoreTimeShift>1</IgnoreTimeShift>
         </Comparison>
         <SyncConfig>
             <Variant>Update</Variant>
