@@ -43,7 +43,7 @@
         </GlobalFilter>
         <FolderPairs>
             <Pair>
-                <Left>mtp:\Dani's Galaxy\Card\DCIM</Left>
+                <Left>mtp:\HUAWEI VNS-L21\SD-Karte von SanDisk\DCIM</Left>
                 <Right>Y:\Mobile\Dani\DCIM</Right>
                 <LocalFilter>
                     <Include>
@@ -58,11 +58,11 @@
                 </LocalFilter>
             </Pair>
             <Pair>
-                <Left>mtp:\Dani's Galaxy\Card\Recording</Left>
+                <Left>mtp:\HUAWEI VNS-L21\SD-Karte von SanDisk\Recording</Left>
                 <Right>Y:\Mobile\Dani\Recording</Right>
             </Pair>
             <Pair>
-                <Left>mtp:\Dani's Galaxy\Phone\WhatsApp</Left>
+                <Left>mtp:\HUAWEI VNS-L21\Interner Speicher\WhatsApp</Left>
                 <Right>Y:\Mobile\Dani\WhatsApp</Right>
                 <LocalFilter>
                     <Include>
