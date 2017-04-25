@@ -72,6 +72,7 @@
                         <Item>*\Sent\</Item>
                         <Item>\Backups\</Item>
                         <Item>\Profile Pictures\</Item>
+                        <Item>*\Databases\msgstore*.db.crypt12</Item>
                     </Exclude>
                     <TimeSpan Type="None">0</TimeSpan>
                     <SizeMin Unit="None">0</SizeMin>
