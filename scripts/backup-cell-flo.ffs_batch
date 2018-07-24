@@ -34,7 +34,7 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>mtp:\KIW-L21\Interner Speicher\games</Left>
+            <Left>mtp:\ASUS_X017DA\SD card\games</Left>
             <Right>Y:\Mobile\Flo\games</Right>
             <Synchronize>
                 <Variant>Mirror</Variant>
@@ -55,7 +55,7 @@
             </Filter>
         </Pair>
         <Pair>
-            <Left>mtp:\KIW-L21\SD-Karte\DCIM</Left>
+            <Left>mtp:\ASUS_X017DA\SD card\DCIM</Left>
             <Right>Y:\Mobile\Flo\DCIM</Right>
             <Filter>
                 <Include>
@@ -70,7 +70,7 @@
             </Filter>
         </Pair>
         <Pair>
-            <Left>mtp:\KIW-L21\SD-Karte\Recordings</Left>
+            <Left>mtp:\ASUS_X017DA\SD card\Recordings</Left>
             <Right>Y:\Mobile\Flo\Recordings</Right>
             <Filter>
                 <Include>
@@ -85,7 +85,7 @@
             </Filter>
         </Pair>
         <Pair>
-            <Left>mtp:\KIW-L21\SD-Karte\WhatsApp</Left>
+            <Left>mtp:\ASUS_X017DA\SD card\WhatsApp</Left>
             <Right>Y:\Mobile\Flo\WhatsApp</Right>
             <Filter>
                 <Include>
