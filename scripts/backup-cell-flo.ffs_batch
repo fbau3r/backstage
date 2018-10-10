@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FreeFileSync XmlType="BATCH" XmlFormat="11">
+<FreeFileSync XmlType="BATCH" XmlFormat="12">
     <Compare>
         <Variant>TimeAndSize</Variant>
         <Symlinks>Exclude</Symlinks>
-        <IgnoreTimeShift>1</IgnoreTimeShift>
+        <IgnoreTimeShift>1:10</IgnoreTimeShift>
     </Compare>
     <Synchronize>
         <Variant>Update</Variant>
@@ -85,7 +85,7 @@
             </Filter>
         </Pair>
         <Pair>
-            <Left>mtp:\ASUS_X017DA\SD card\WhatsApp</Left>
+            <Left>mtp:\ASUS_X017DA\Internal shared storage\WhatsApp</Left>
             <Right>Y:\Mobile\Flo\WhatsApp</Right>
             <Filter>
                 <Include>
