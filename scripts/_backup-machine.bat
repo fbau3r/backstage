@@ -27,7 +27,7 @@ TITLE Backstage - %BackupName%
 :WaitForTcVolumePath
 IF NOT EXIST "%TcVolumePath%" (
   %ColorConsole% {{Cyan}}* Plugin Harddisk, so "%TcVolumePath%" is available
-  PAUSE
+  timeout /t 5 /nobreak > NUL
   GOTO WaitForTcVolumePath
 )
 
