@@ -1,7 +1,8 @@
 @ECHO OFF
 
-SET TrueCrypt=%ProgramFiles%\TrueCrypt\TrueCrypt.exe
-SET TcVolumePath=S:\Att22.tc
+SET VeraCrypt=%ProgramFiles%\VeraCrypt\VeraCrypt.exe
+SET VcVolumePath=S:\Att22.vc
+SET VcKeyPath=%USERPROFILE%\.vc\22tta.key
 SET BackupTargetLetter=T
 SET BackupTarget=%BackupTargetLetter%:
 SET BackupSource=Y:
@@ -9,50 +10,65 @@ SET ColorConsole=%~dp0..\lib\colorconsole.exe
 
 TITLE Backstage - Insanity
 
-:WaitForTcVolumePath
-IF NOT EXIST "%TcVolumePath%" (
-  %ColorConsole% {{Cyan}}* Plugin Harddisk, so "%TcVolumePath%" is available
-  PAUSE
-  GOTO WaitForTcVolumePath
+:WaitForVcVolumePath
+IF NOT EXIST "%VcVolumePath%" (
+  %ColorConsole% {{Cyan}}* Plugin Harddisk, so "%VcVolumePath%" is available
+  timeout /t 5 /nobreak > NUL
+  GOTO WaitForVcVolumePath
 )
 
 IF NOT EXIST "%BackupSource%" (
-  %ColorConsole% {{Red}}ERROR: Backup Source does not exist
+  %ColorConsole% {{Red}}ERROR: Backup Source not found: '%BackupSource%'
   EXIT /B 1
 )
 
-%ColorConsole% {{DarkGray}}Mounting TC volume...
-"%TrueCrypt%" /volume "%TcVolumePath%" /letter %BackupTargetLetter% /history n /quit
+%ColorConsole% {{DarkGray}}Mounting VC volume...
+"%VeraCrypt%" /volume "%VcVolumePath%" /letter %BackupTargetLetter% /tryemptypass /history n /quit /keyfile %VcKeyPath% ^
+	|| ( %ColorConsole% "{{Red}}ERROR: VeraCrypt returned exit code %ERRORLEVEL%" & EXIT /B 4 )
 
 %ColorConsole% {{DarkGray}}Now wait for Backup to complete...
 
 
 
-call:runRobocopy "Shared Data" "" "VirtualBox*"
-call:runRobocopy "Software" "*.iso" "Development"
-call:runRobocopy "Backup" "*.mrimg *.img *.tc *.backstage"
-call:runRobocopy "Mobile"
-call:runRobocopy "Shared Music"
-call:runRobocopy "Shared Pictures"
-call:runRobocopy "Shared Videos"
-call:runRobocopy "Videothek\Filme-Kinder"
-call:runRobocopy "Videothek\Serien-Kinder"
+call:runRobocopy "Shared Data" "" "VirtualBox*" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Software" "*.iso" "Development" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Backup" "*.mrimg *.img *.tc *.vc *.backstage" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Mobile" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Shared Music" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Shared Pictures" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Shared Videos" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Videothek\Filme-Kinder" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
+call:runRobocopy "Videothek\Serien-Kinder" ^
+	|| ( call:unmountVolume "{{Red}}Backup failed!" & EXIT /B 5 )
 REM not included intentionally: uTorrent
 
 
 
-ECHO.
-%ColorConsole% {{Green}}Backup completed successfully!
+call:unmountVolume "{{Green}}Backup completed successfully!"
 
-%ColorConsole% {{DarkGray}}Unmounting TC volume...
-"%TrueCrypt%" /dismount %BackupTargetLetter% /quit
+goto:eof
 
-IF %ERRORLEVEL% GTR 0 (
-  %ColorConsole% {{Red}}ERROR: TrueCrypt returned exit code %ERRORLEVEL%
-  EXIT /B 4
-)
 
-%ColorConsole% {{Green}}Done, thanks!
+
+:unmountVolume
+
+  %ColorConsole% {{DarkGray}}Unmounting VC volume...
+  "%VeraCrypt%" /dismount %BackupTargetLetter% /quit ^
+  	|| ( %ColorConsole% "{{Red}}ERROR: VeraCrypt returned exit code %ERRORLEVEL%" & EXIT /B 4 )
+
+  %ColorConsole% {{DarkGray}}Unmount done
+
+  ECHO.
+  %ColorConsole% %~1
+
 goto:eof
 
 
@@ -70,7 +86,7 @@ goto:eof
   IF %ERRORLEVEL% LSS 8 (
     %ColorConsole% {{Green}}Done
   ) ELSE (
-    %ColorConsole% {{Red}}ERROR: Robocopy returned exit code %~1
+    %ColorConsole% {{Red}}ERROR: Robocopy for %~1 returned exit code %ERRORLEVEL%
     %ColorConsole% {{DarkGray}}For details, see http://ss64.com/nt/robocopy-exit.html
     EXIT /B 1
   )
