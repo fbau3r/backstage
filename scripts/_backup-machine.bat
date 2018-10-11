@@ -9,6 +9,7 @@ REM SET Default values if not overridden
 IF "%ReflectProfile%"==""     (SET ReflectProfile=%USERPROFILE%\Documents\Reflect\%BackupName%.xml)
 IF "%VcVolumeLetter%"==""     (SET VcVolumeLetter=S:)
 IF "%VcVolumePath%"==""       (SET VcVolumePath=%VcVolumeLetter%\%BackupName%.vc)
+IF "%VcKeyPath%"==""          (SET VcKeyPath=%USERPROFILE%\.vc\%BackupName%.key)
 IF "%BackupTargetLetter%"=="" (SET BackupTargetLetter=T)
 IF "%BackupTarget%"==""       (SET BackupTarget=%BackupTargetLetter%:)
 IF "%VeraCrypt%"==""          (SET VeraCrypt=%ProgramFiles%\VeraCrypt\VeraCrypt.exe)
