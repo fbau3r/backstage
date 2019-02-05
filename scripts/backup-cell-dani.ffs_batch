@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FreeFileSync XmlType="BATCH" XmlFormat="12">
+<FreeFileSync XmlType="BATCH" XmlFormat="14">
     <Compare>
         <Variant>TimeAndSize</Variant>
         <Symlinks>Exclude</Symlinks>
@@ -75,11 +75,11 @@
         </Pair>
     </FolderPairs>
     <Errors Ignore="false" Retry="0" Delay="5"/>
+    <LogFolder/>
     <PostSyncCommand Condition="Completion"/>
     <Batch>
-        <ProgressDialog Minimized="true" AutoClose="true"/>
+        <ProgressDialog Minimized="false" AutoClose="false"/>
         <ErrorDialog>Show</ErrorDialog>
         <PostSyncAction>None</PostSyncAction>
-        <LogfileFolder Limit="0"/>
     </Batch>
 </FreeFileSync>
