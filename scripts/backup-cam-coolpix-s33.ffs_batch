@@ -8,7 +8,7 @@
     <Synchronize>
         <Variant>Update</Variant>
         <DetectMovedFiles>false</DetectMovedFiles>
-        <DeletionPolicy>Versioning</DeletionPolicy>
+        <DeletionPolicy>RecycleBin</DeletionPolicy>
         <VersioningFolder Style="Replace">Y:\Mobile\Coolpix-S33\_Revisions</VersioningFolder>
     </Synchronize>
     <Filter>
