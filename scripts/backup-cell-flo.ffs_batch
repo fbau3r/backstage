@@ -34,27 +34,6 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>mtp:\ASUS_X017DA\SD card\games</Left>
-            <Right>Y:\Mobile\Flo\games</Right>
-            <Synchronize>
-                <Variant>Mirror</Variant>
-                <DetectMovedFiles>false</DetectMovedFiles>
-                <DeletionPolicy>Versioning</DeletionPolicy>
-                <VersioningFolder Style="Replace">Y:\Mobile\Flo\_Revisions</VersioningFolder>
-            </Synchronize>
-            <Filter>
-                <Include>
-                    <Item>*</Item>
-                </Include>
-                <Exclude>
-                    <Item>*\_Archived\</Item>
-                </Exclude>
-                <TimeSpan Type="None">0</TimeSpan>
-                <SizeMin Unit="None">0</SizeMin>
-                <SizeMax Unit="None">0</SizeMax>
-            </Filter>
-        </Pair>
-        <Pair>
             <Left>mtp:\ASUS_X017DA\SD card\DCIM</Left>
             <Right>Y:\Mobile\Flo\DCIM</Right>
             <Filter>
