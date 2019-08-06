@@ -26,6 +26,7 @@
             <Item>*\.dthumb\</Item>
             <Item>*\.shared\</Item>
             <Item>*\.nomedia</Item>
+            <Item>*\.aux</Item>
             <Item/>
         </Exclude>
         <TimeSpan Type="None">0</TimeSpan>
@@ -34,7 +35,11 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>mtp:\ASUS_X017DA\SD card\DCIM</Left>
+            <Left>mtp:\ASUS_X017DA\Micro SD\Pictures</Left>
+            <Right>Y:\Mobile\Flo\Pictures</Right>
+        </Pair>
+        <Pair>
+            <Left>mtp:\ASUS_X017DA\Micro SD\DCIM</Left>
             <Right>Y:\Mobile\Flo\DCIM</Right>
             <Filter>
                 <Include>
@@ -49,7 +54,7 @@
             </Filter>
         </Pair>
         <Pair>
-            <Left>mtp:\ASUS_X017DA\SD card\Recordings</Left>
+            <Left>mtp:\ASUS_X017DA\Micro SD\Recordings</Left>
             <Right>Y:\Mobile\Flo\Recordings</Right>
             <Filter>
                 <Include>
