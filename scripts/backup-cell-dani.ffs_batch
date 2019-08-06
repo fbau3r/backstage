@@ -28,6 +28,7 @@
             <Item>*\.nomedia</Item>
             <Item>*\msgstore*.db.crypt8</Item>
             <Item>*\.backup\</Item>
+            <Item>*\.aux</Item>
         </Exclude>
         <TimeSpan Type="None">0</TimeSpan>
         <SizeMin Unit="None">0</SizeMin>
@@ -35,8 +36,8 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>mtp:\HUAWEI P9 lite\SD-Karte\DCIM</Left>
-            <Right>Y:\Mobile\Dani\DCIM</Right>
+            <Left>mtp:\Galaxy A7 (2018)\Phone\DCIM</Left>
+            <Right>Y:\Mobile\Dani-2019-galaxy\DCIM</Right>
             <Filter>
                 <Include>
                     <Item>*</Item>
@@ -50,12 +51,8 @@
             </Filter>
         </Pair>
         <Pair>
-            <Left>mtp:\HUAWEI P9 lite\SD-Karte\Recording</Left>
-            <Right>Y:\Mobile\Dani\Recording</Right>
-        </Pair>
-        <Pair>
-            <Left>mtp:\HUAWEI P9 lite\SD-Karte\WhatsApp</Left>
-            <Right>Y:\Mobile\Dani\WhatsApp</Right>
+            <Left>mtp:\Galaxy A7 (2018)\Phone\WhatsApp</Left>
+            <Right>Y:\Mobile\Dani-2019-galaxy\WhatsApp</Right>
             <Filter>
                 <Include>
                     <Item>*</Item>
