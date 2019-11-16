@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FreeFileSync XmlType="BATCH" XmlFormat="14">
+    <Compare>
+        <Variant>TimeAndSize</Variant>
+        <Symlinks>Exclude</Symlinks>
+        <IgnoreTimeShift>1</IgnoreTimeShift>
+    </Compare>
+    <Synchronize>
+        <Variant>Update</Variant>
+        <DetectMovedFiles>false</DetectMovedFiles>
+        <DeletionPolicy>RecycleBin</DeletionPolicy>
+        <VersioningFolder Style="Replace">Y:\Mobile\Dani\_Revisions</VersioningFolder>
+    </Synchronize>
+    <Filter>
+        <Include>
+            <Item>*</Item>
+        </Include>
+        <Exclude>
+            <Item>\System Volume Information\</Item>
+            <Item>\$Recycle.Bin\</Item>
+            <Item>\RECYCLER\</Item>
+            <Item>\RECYCLED\</Item>
+            <Item>*\desktop.ini</Item>
+            <Item>*\thumbs.db</Item>
+            <Item>*\.thumbnails\</Item>
+            <Item>*\.dthumb\</Item>
+            <Item>*\.shared\</Item>
+            <Item>*\.nomedia</Item>
+            <Item>*\msgstore*.db.crypt8</Item>
+            <Item>*\.backup\</Item>
+        </Exclude>
+        <TimeSpan Type="None">0</TimeSpan>
+        <SizeMin Unit="None">0</SizeMin>
+        <SizeMax Unit="None">0</SizeMax>
+    </Filter>
+    <FolderPairs>
+        <Pair>
+            <Left>mtp:\HUAWEI P9 lite\SD-Karte\DCIM</Left>
+            <Right>Y:\Mobile\Dani-2017-huawei\DCIM</Right>
+            <Filter>
+                <Include>
+                    <Item>*</Item>
+                </Include>
+                <Exclude>
+                    <Item>\Camera\201?\</Item>
+                </Exclude>
+                <TimeSpan Type="None">0</TimeSpan>
+                <SizeMin Unit="None">0</SizeMin>
+                <SizeMax Unit="None">0</SizeMax>
+            </Filter>
+        </Pair>
+        <Pair>
+            <Left>mtp:\HUAWEI P9 lite\SD-Karte\Recording</Left>
+            <Right>Y:\Mobile\Dani-2017-huawei\Recording</Right>
+        </Pair>
+        <Pair>
+            <Left>mtp:\HUAWEI P9 lite\SD-Karte\WhatsApp</Left>
+            <Right>Y:\Mobile\Dani-2017-huawei\WhatsApp</Right>
+            <Filter>
+                <Include>
+                    <Item>*</Item>
+                </Include>
+                <Exclude>
+                    <Item>*\Sent\</Item>
+                    <Item>\Backups\</Item>
+                    <Item>\Profile Pictures\</Item>
+                    <Item>*\Databases\msgstore*.db.crypt*</Item>
+                    <Item>*\Media\.Statuses\</Item>
+                    <Item/>
+                </Exclude>
+                <TimeSpan Type="None">0</TimeSpan>
+                <SizeMin Unit="None">0</SizeMin>
+                <SizeMax Unit="None">0</SizeMax>
+            </Filter>
+        </Pair>
+    </FolderPairs>
+    <Errors Ignore="false" Retry="0" Delay="5"/>
+    <LogFolder/>
+    <PostSyncCommand Condition="Completion"/>
+    <Batch>
+        <ProgressDialog Minimized="false" AutoClose="false"/>
+        <ErrorDialog>Show</ErrorDialog>
+        <PostSyncAction>None</PostSyncAction>
+    </Batch>
+</FreeFileSync>
