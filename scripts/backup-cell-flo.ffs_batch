@@ -35,6 +35,10 @@
     </Filter>
     <FolderPairs>
         <Pair>
+            <Left>mtp:\ASUS_X017DA\Micro SD\AsusSoundRecorder</Left>
+            <Right>Y:\Mobile\Flo\AsusSoundRecorder</Right>
+        </Pair>
+        <Pair>
             <Left>mtp:\ASUS_X017DA\Micro SD\Pictures</Left>
             <Right>Y:\Mobile\Flo\Pictures</Right>
         </Pair>
