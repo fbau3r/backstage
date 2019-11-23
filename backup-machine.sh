@@ -67,6 +67,18 @@ function unmount_backup_volume() {
         || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; exit 202; }
 }
 
+function remove_previous_backup() {
+    echo "Remove previous backup..."
+    reflect_profile_filename=$( \
+        cat "$reflect_profile_path" \
+        | grep -o -E '<file_name>(.*?)</file_name>' \
+        | sed -E 's|<file_name>(.*?)</file_name>|\1|'\
+        )
+    previous_backup_path="${veracrypt_drive_letter}:/${reflect_profile_filename}.mrimg"
+    test -f "${previous_backup_path}" \
+        && rm "${previous_backup_path}"
+}
+
 function start_backup() {
     echo "Starting backup..."
     "${reflect_path}" -e -w -full "${reflect_profile_path}" \
@@ -95,6 +107,7 @@ function unmount_backup_drive() {
 
 waitfor_backup_drive
 mount_backup_volume
+remove_previous_backup
 start_backup || { start_failure_cleanup; unmount_backup_volume; done_with_errors 41; }
 unmount_backup_volume
 unmount_backup_drive
