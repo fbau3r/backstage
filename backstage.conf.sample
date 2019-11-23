@@ -1,2 +1,3 @@
 backup_name="my-backup-name.vc"
+reflect_profile_path="${USERPROFILE}/Documents/Reflect/my-backup-name.xml"
 veracrypt_key_file="${USERPROFILE}/.backstage/8d0b-fedbb02e8e70.key"
