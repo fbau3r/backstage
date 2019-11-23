@@ -54,14 +54,21 @@ function mount_backup_volume() {
         || { echo -e "\e[31mError\e[0m: Could not mount encrypted volume"; exit 201; }
 }
 
+function unmount_backup_volume() {
+    echo "Unmounting encrypted volume..."
+    "${veracrypt_path}" \
+        //dismount "${veracrypt_drive_letter}" \
+        //quit \
+        || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; exit 202; }
+}
+
 waitfor_backup_drive
 mount_backup_volume
 
 echo "Start backup..."
 echo "start macrium backup"
 
-echo "Unmount encrypted volume..."
-echo "unmount"
+unmount_backup_volume
 
 echo "Unmount backup drive..."
 echo "unmount"
