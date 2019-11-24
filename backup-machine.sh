@@ -15,6 +15,7 @@ source "${backstage_conf_path}"
 
 # assert values and given files exist
 test    "${backup_name:?}"
+test -f "${veracrypt_key_file:?}"   || { echo -e "\e[31mError\e[0m: Cannot find \"$(realpath "${veracrypt_key_file}")\"";   exit 12; }
 
 function waitfor_backup_drive() {
     # wait for mounted backup drive
@@ -41,10 +42,20 @@ function waitfor_backup_drive() {
     fi
 }
 
-waitfor_backup_drive
+function mount_backup_volume() {
+    echo "Mounting encrypted volume..."
+    "${veracrypt_path}" \
+        //volume "$(cygpath -w "${backup_file}")" \
+        //letter "${veracrypt_drive_letter}" \
+        //history n \
+        //quit \
+        //tryemptypass \
+        //keyfile "$(cygpath -w "${veracrypt_key_file}")" \
+        || { echo -e "\e[31mError\e[0m: Could not mount encrypted volume"; exit 201; }
+}
 
-echo "Mount backup volume..."
-echo "mount backup volume"
+waitfor_backup_drive
+mount_backup_volume
 
 echo "Start backup..."
 echo "start macrium backup"

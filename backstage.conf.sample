@@ -1,1 +1,2 @@
 backup_name="my-backup-name.vc"
+veracrypt_key_file="${USERPROFILE}/.backstage/8d0b-fedbb02e8e70.key"
