@@ -1,6 +1,9 @@
 #!/bin/bash
 
+script_dir="$(realpath $(dirname $0))"
+
 backup_drive_name="Backup Container"
+removedrive_path="${script_dir}/lib/removedrive.exe"
 veracrypt_drive_letter=T
 veracrypt_path="${PROGRAMFILES}/VeraCrypt/veracrypt.exe"
 
@@ -62,6 +65,12 @@ function unmount_backup_volume() {
         || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; exit 202; }
 }
 
+function unmount_backup_drive() {
+    echo "Unmounting drive \"${backup_drive}\"..."
+    "${removedrive_path}" "${backup_drive}" -l -b \
+    || { echo -e "\e[31mError\e[0m: Could not unmount drive \"${backup_drive}\""; exit 301; }
+}
+
 waitfor_backup_drive
 mount_backup_volume
 
@@ -69,7 +78,5 @@ echo "Start backup..."
 echo "start macrium backup"
 
 unmount_backup_volume
-
-echo "Unmount backup drive..."
-echo "unmount"
+unmount_backup_drive
 echo -e "\e[32mDone\e[0m"
