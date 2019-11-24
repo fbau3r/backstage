@@ -22,6 +22,12 @@ test    "${backup_name:?}"
 test -f "${reflect_profile_path:?}" || { echo -e "\e[31mError\e[0m: Cannot find \"$(realpath "${reflect_profile_path}")\""; exit 11; }
 test -f "${veracrypt_key_file:?}"   || { echo -e "\e[31mError\e[0m: Cannot find \"$(realpath "${veracrypt_key_file}")\"";   exit 12; }
 
+function setup_console_title() {
+    # https://superuser.com/a/886247/652258
+    export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+    echo -ne "\e]0;Backstage\a"
+}
+
 function waitfor_backup_drive() {
     # wait for mounted backup drive
     while : ; do
@@ -105,6 +111,7 @@ function unmount_backup_drive() {
     || { echo -e "\e[31mError\e[0m: Could not unmount drive \"${backup_drive}\""; exit 301; }
 }
 
+setup_console_title
 waitfor_backup_drive
 mount_backup_volume
 remove_previous_backup
