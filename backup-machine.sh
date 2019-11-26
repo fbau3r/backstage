@@ -49,7 +49,7 @@ function waitfor_backup_drive() {
     backup_file="${backup_drive}/${backup_name}"
     if [[ ! -f "${backup_file}" ]]; then
         echo -e "\e[31mError\e[0m: Cannot find \"${backup_file}\" on backup drive"
-        exit 13
+        return 13
     fi
 }
 
@@ -62,7 +62,7 @@ function mount_backup_volume() {
         //quit \
         //tryemptypass \
         //keyfile "$(cygpath -w "${veracrypt_key_file}")" \
-        || { echo -e "\e[31mError\e[0m: Could not mount encrypted volume"; exit 14; }
+        || { echo -e "\e[31mError\e[0m: Could not mount encrypted volume"; return 14; }
 }
 
 function unmount_backup_volume() {
@@ -70,7 +70,7 @@ function unmount_backup_volume() {
     "${veracrypt_path}" \
         //dismount "${veracrypt_drive_letter}" \
         //quit \
-        || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; exit 31; }
+        || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; return 31; }
 }
 
 function remove_previous_backup() {
@@ -91,7 +91,7 @@ function start_backup() {
     || {
         echo -e "\e[31mError\e[0m: Could not start backup"
         echo -e "       Please start \e[36mMacrium Reflect\e[0m and check for errors in \e[36mLog\e[0m tab."
-        return 1
+        return 21
     }
 }
 
@@ -108,14 +108,14 @@ function done_with_errors() {
 function unmount_backup_drive() {
     echo "Unmounting drive \"${backup_drive}\"..."
     "${removedrive_path}" "${backup_drive}" -l -b \
-    || { echo -e "\e[31mError\e[0m: Could not unmount drive \"${backup_drive}\""; exit 32; }
+    || { echo -e "\e[31mError\e[0m: Could not unmount drive \"${backup_drive}\""; return 32; }
 }
 
 setup_console_title
-waitfor_backup_drive
-mount_backup_volume
+waitfor_backup_drive   || exit
+mount_backup_volume    || exit
 remove_previous_backup
-start_backup || { start_failure_cleanup; unmount_backup_volume; done_with_errors 21; }
-unmount_backup_volume
-unmount_backup_drive
+start_backup           || { error_code=$?; start_failure_cleanup; unmount_backup_volume; done_with_errors $error_code; }
+unmount_backup_volume  || done_with_errors $?
+unmount_backup_drive   || done_with_errors $?
 echo -e "\e[32mDone\e[0m"
