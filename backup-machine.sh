@@ -49,7 +49,7 @@ function waitfor_backup_drive() {
     backup_file="${backup_drive}/${backup_name}"
     if [[ ! -f "${backup_file}" ]]; then
         echo -e "\e[31mError\e[0m: Cannot find \"${backup_file}\" on backup drive"
-        exit 101
+        exit 13
     fi
 }
 
@@ -62,7 +62,7 @@ function mount_backup_volume() {
         //quit \
         //tryemptypass \
         //keyfile "$(cygpath -w "${veracrypt_key_file}")" \
-        || { echo -e "\e[31mError\e[0m: Could not mount encrypted volume"; exit 201; }
+        || { echo -e "\e[31mError\e[0m: Could not mount encrypted volume"; exit 14; }
 }
 
 function unmount_backup_volume() {
@@ -70,7 +70,7 @@ function unmount_backup_volume() {
     "${veracrypt_path}" \
         //dismount "${veracrypt_drive_letter}" \
         //quit \
-        || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; exit 202; }
+        || { echo -e "\e[31mError\e[0m: Could not unmount encrypted volume"; exit 31; }
 }
 
 function remove_previous_backup() {
@@ -108,14 +108,14 @@ function done_with_errors() {
 function unmount_backup_drive() {
     echo "Unmounting drive \"${backup_drive}\"..."
     "${removedrive_path}" "${backup_drive}" -l -b \
-    || { echo -e "\e[31mError\e[0m: Could not unmount drive \"${backup_drive}\""; exit 301; }
+    || { echo -e "\e[31mError\e[0m: Could not unmount drive \"${backup_drive}\""; exit 32; }
 }
 
 setup_console_title
 waitfor_backup_drive
 mount_backup_volume
 remove_previous_backup
-start_backup || { start_failure_cleanup; unmount_backup_volume; done_with_errors 41; }
+start_backup || { start_failure_cleanup; unmount_backup_volume; done_with_errors 21; }
 unmount_backup_volume
 unmount_backup_drive
 echo -e "\e[32mDone\e[0m"
