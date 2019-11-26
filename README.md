@@ -25,3 +25,36 @@
         - Select _Use MinTTY_
 - Install [VeraCrypt](https://www.veracrypt.fr/en/Downloads.html) (1.24-Hotfix1, 2019-10-27)
 - Install [Macrium Reflect 7 - Free Edition](https://www.macrium.com/reflectfree) (7.2.4539, 2019-11-18)
+
+
+
+## Installation and Removal
+
+All described commands are being executed from a git-bash for Windows (not elevated).
+
+### Install
+
+```bash
+# Clone _this repository_
+git clone git@github.com:fbau3r/backstage.git "$ALLUSERSPROFILE/backstage2"
+
+# Init machine configuration from a git-bash
+$ALLUSERSPROFILE/backstage2/init-machine.sh
+```
+
+### Upgrade
+
+```bash
+# Pull repository
+(cd "$ALLUSERSPROFILE/backstage2" && git pull)
+```
+
+### Uninstall
+
+```bash
+# Remove _this repository_ from machine
+([[ -d "$ALLUSERSPROFILE/backstage2" ]] && rm -fR "$ALLUSERSPROFILE/backstage2")
+
+# Review if you want to keep machine configuration
+([[ -d "${USERPROFILE}/.backstage" ]] && explorer /select,"$(cygpath -w "${USERPROFILE}/.backstage")")
+```
