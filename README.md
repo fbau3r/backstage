@@ -74,3 +74,35 @@ $ALLUSERSPROFILE/backstage2/init-machine.sh
 1. **Copy** directory contents of `assets/external-disk/*` to disk
 1. **Change** `LABEL` to `Backup Container NN` in `autorun.ini`
 1. **Hide** `autorun.*` files
+
+### Create encrypted file container
+
+1. Start VeraCrypt in _**elevated**_ mode
+    (at the end of formatting an NTFS disk, elevation will be needed and if the elevation prompt times out, formatting fails)
+1. Click Button **Create Volume**
+1. Choose **Create an encrypted file container**
+1. Click Button **Next**
+1. Choose **Standard VeraCrypt volume**
+1. Click Button **Next**
+1. **Choose _Volume Location_** on the external disk
+    (e.g. `E:\my-backup-name.vc`)
+1. Click Button **Next**
+1. Leave _Encryption Options_ as they are
+1. Click Button **Next**
+1. **Choose _Volume Size_** to hold the future backup
+    (rule of thumb: `current disk usage + ~25% potential growth space`)
+1. Click Button **Next**
+1. Leave _Password_ empty
+1. **Check** _Use keyfiles_
+1. Click Button **Keyfiles...**
+    1. [Optional] If you don't have a keyfile yet, generate a new keyfile by clicking Button **Generate Random Keyfile...** and following the procedure in that dialog
+1. Click Button **Add Files...**
+1. **Browse** for _Keyfile_
+    -_**IMPORTANT**_- Please backup this keyfile _separately_ somewhere else! If this key is lost, the **encrypted backup will be lost too**! See chapter [Backup Keyfile](#backup-keyfile).
+1. Click Button **OK**
+1. Click Button **Next**
+1. **Choose** _Volume Format_ **NTFS** and collect some randomness
+1. Click Button **Format**
+1. _Wait for the formatting to finish, this may take quite some time..._
+1. Click Button **OK** in the success message dialog
+1. Click Button **Exit** to exit the wizard
