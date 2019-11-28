@@ -58,3 +58,19 @@ $ALLUSERSPROFILE/backstage2/init-machine.sh
 # Review if you want to keep machine configuration
 ([[ -d "${USERPROFILE}/.backstage" ]] && explorer /select,"$(cygpath -w "${USERPROFILE}/.backstage")")
 ```
+
+
+
+## Disk setup
+
+### Setup external disk
+
+1. **Format** disk with **NTFS** filesystem
+1. In _Disk Properties_:
+    1. Set the **disk name** to be `Backup Container NN`
+        (where `NN` is replaced by a number)
+    1. **Uncheck** disk indexing
+    1. **Add** Group **Everyone** with permission **Full control** and remove any other groups or users (recursively)
+1. **Copy** directory contents of `assets/external-disk/*` to disk
+1. **Change** `LABEL` to `Backup Container NN` in `autorun.ini`
+1. **Hide** `autorun.*` files
