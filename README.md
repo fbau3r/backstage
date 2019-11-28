@@ -106,3 +106,13 @@ $ALLUSERSPROFILE/backstage2/init-machine.sh
 1. _Wait for the formatting to finish, this may take quite some time..._
 1. Click Button **OK** in the success message dialog
 1. Click Button **Exit** to exit the wizard
+
+### Setup encrypted file container
+
+1. Mount the encrypted file container
+1. In _Disk Properties_:
+    1. Set the **disk name** to be `Backup Disk`
+    1. **Uncheck** disk indexing
+    1. **Add** Group **Everyone** with permission **Full control** and remove any other groups or users (recursively)
+1. **Copy** directory contents of `assets/encrypted-disk/*` to disk
+1. **Hide** `autorun.*` files
