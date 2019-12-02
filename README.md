@@ -61,6 +61,16 @@ $ALLUSERSPROFILE/backstage2/init-machine.sh
 
 
 
+## Run
+
+To run the backup, plug-in the external disk with encrypted file container (setup see below) and run `backup-machine.cmd` as Administrator (_**elevated**_ mode):
+
+```bash
+backup-machine.cmd
+```
+
+
+
 ## Disk setup
 
 ### Setup external disk
