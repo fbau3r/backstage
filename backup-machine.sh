@@ -80,9 +80,7 @@ function remove_previous_backup() {
         | grep -o -E '<file_name>(.*?)</file_name>' \
         | sed -E 's|<file_name>(.*?)</file_name>|\1|'\
         )
-    previous_backup_path="${veracrypt_drive_letter}:/${reflect_profile_filename}.mrimg"
-    test -f "${previous_backup_path}" \
-        && rm "${previous_backup_path}"
+    rm "${veracrypt_drive_letter}:/${reflect_profile_filename}*.mrimg" 2>/dev/null
 }
 
 function start_backup() {
