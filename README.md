@@ -116,3 +116,36 @@ $ALLUSERSPROFILE/backstage2/init-machine.sh
     1. **Add** Group **Everyone** with permission **Full control** and remove any other groups or users (recursively)
 1. **Copy** directory contents of `assets/encrypted-disk/*` to disk
 1. **Hide** `autorun.*` files
+
+### Backup Keyfile
+
+-_**IMPORTANT**_- Please backup this keyfile _separately_ somewhere else! If this key is lost, the **encrypted backup will be lost too**! See chapter [Backup Keyfile](#backup-keyfile).
+
+The backups are inside an encrypted file container to secure the transport of the external disk and to allow for multiple backups of different persons on one external disk, with everyone reading only their own data.
+
+To backup the keyfile, the key file is put in a 7-Zip archive which is then AES-256 encrypted and protected with a password. That protected key is placed on another machine than the backup machine.
+
+For recovery purposes you will need the external disk and the password protected backup of the keyfile.
+
+1. Create a sha256sum file from the keyfile:
+    1. Open bash
+    1. Change to directory of keyfile
+        (e.g. `cd ~/.backstage`)
+    1. Create file
+        (e.g. `sha256sum 8d0b-fedbb02e8e70.key > 8d0b-fedbb02e8e70.key.sha256sum`)
+1. Create encrypted, password protected archive
+    1. Open 7-Zip
+    1. Change to directory of keyfile
+        (e.g. `~/.backstage`)
+    1. Select key file and checksum file
+        (e.g. `8d0b-fedbb02e8e70.key` and `8d0b-fedbb02e8e70.key.sha256sum`)
+    1. Click Button **Add**
+    1. Choose Archive name
+        (e.g. `8d0b-fedbb02e8e70.7z`)
+    1. Ensure _Archive format_ **7z**
+    1. In **Encryption** group
+        1. **Enter password** to protect your key with
+        1. Choose _Encryption method_ **AES-256**
+        1. Check **Encrypt file names**
+    1. Click button **OK**
+1. Put the encrypted, password protected archive to a location which is not the backed-up-disk and not the external disk (e.g. on your NAS or on another local machine)
