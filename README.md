@@ -36,7 +36,7 @@ All described commands are being executed from a git-bash for Windows (not eleva
 
 ```bash
 # Clone _this repository_
-git clone git@github.com:fbau3r/backstage.git "$ALLUSERSPROFILE/backstage2"
+git clone https://github.com/fbau3r/backstage.git "$ALLUSERSPROFILE/backstage2"
 
 # Init machine configuration from a git-bash
 $ALLUSERSPROFILE/backstage2/init-machine.sh
